@@ -1,0 +1,17 @@
+export function leerDatos(clave, valorInicial) {
+  const texto = localStorage.getItem(clave);
+  if (texto === null) return valorInicial;
+  try {
+    return JSON.parse(texto);
+  } catch {
+    return valorInicial;
+  }
+}
+
+export function guardarDatos(clave, valor) {
+  localStorage.setItem(clave, JSON.stringify(valor));
+}
+
+export function eliminarDatos(clave) {
+  localStorage.removeItem(clave);
+}
