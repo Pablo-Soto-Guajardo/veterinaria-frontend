@@ -163,4 +163,4 @@ function FormularioUsuario({ modo, inicial, onGuardar, textoBoton }) {
   );
 }
 
-export default FormularioUsuario;
+export default FormularioUsuario;   
