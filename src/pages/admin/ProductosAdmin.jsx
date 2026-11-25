@@ -14,6 +14,7 @@ import { formatearPrecio } from "../../utils/precio";
 import { tienePermiso } from "../../utils/roles";
 import { estadoStock } from "../../utils/stock";
 
+function ProductosAdmin({ sesion }) {
   const { datos, cargando, error, recargar, setDatos } = useCarga(listarProductos);
   const { datos: categoriasApi } = useCarga(listarCategorias);
   const [busqueda, setBusqueda] = useState("");
@@ -33,7 +34,6 @@ import { estadoStock } from "../../utils/stock";
     setErrorAccion("");
     try {
       await eliminarProducto(producto.codigo);
-      // Igual que en la Guía 16: se quita de la lista sin volver a pedirla.
       setDatos((lista) => lista.filter((p) => p.codigo !== producto.codigo));
       setMensaje(`Producto ${producto.nombre} eliminado.`);
     } catch (err) {
